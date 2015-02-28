@@ -1,9 +1,27 @@
+
+<input ng-model="num" ng-change="setNum()"/>
+
 <ul>
-    <li ng-repeat="recipe in recipes">{{ recipe.name }}
+    <li ng-repeat="recipe in recipes"><a href="#/recipes/{{ recipe.id }}">{{ recipe.name }}</a>
+        <img src="{{ recipe.photo }}" width=500">
         <ol>
-            <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
-        </ol>
+                <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+            </ol>
+            <ol>
+                <li ng-repeat="review in recipe.reviews">{{ review.reviews }}</li>
+            </ol>
     </li>
 </ul>
 
-<a href="#/add-recipe">Add a New recipe</a>
+<a href="#/add-recipe"></a>
+
+
+{#<div id="recipe-list">#}
+{#    <div class="col-sm-6 col-md-2" ng-repeat="recipe in recipes">#}
+{#        <div class="recipe-card">#}
+{#            <h4><a href="#/recipes/{{ recipe.id }}>{{ recipe.name }}</a></h4>#}
+{#            <img class="img-responsive" src="{{ recipe.photo }}">#}
+{#             #}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}

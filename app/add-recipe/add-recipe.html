@@ -1,49 +1,103 @@
-<label>Recipe Name
-    <br>
-    <input ng-model="recipe.name">
-</label>
-<br>
-<br>
+<section class="information" id="recipes-add-page-content">
 
-<label>Recipe Description
-    <br>
-    <textarea ng-model="recipe.description"></textarea>
-</label>
-<br>
-<br>
+    <div class="main-wrapper card">
 
-<label>Recipe Directions
-    <br>
-    <textarea ng-model="recipe.directions"></textarea>
-</label>
-<br>
-<br>
+        <div class="wrapper">
+            <div class="card-header recipe-card-header recipe-details" id="add-recipe-header">
+                <h1 style="padding-left: 12px">Add Recipe</h1>
+            </div>
+            <form name="recipeForm" style="margin-top: 15px;">
 
-<label>Ingredients
-    <br>
-    <input ng-model="ingredientName">
-</label>
-<br>
-<button ng-click="addIngredientToRecipe(ingredientName)">Add ingredient to recipe</button>
-<br>
+                <div class="banner-3">
 
-<p>Your ingredients:</p>
-<ol>
-    <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
-</ol>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" type="text" ng-model="recipe.name">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
 
-<label>Tags
-    <br>
-    <input ng-model="tagName">
-</label>
-<br>
-<button ng-click="addTagToRecipe(tagName)">Add tag to recipe</button>
-<br>
+                        <textarea style="height:286px;" class="form-control" ng-model="recipe.description"></textarea>
 
-<p>Your tags:</p>
-<ol>
-    <li ng-repeat="tag in recipe.tags">{{ tag.name }}</li>
-</ol>
-<br>
+                    </div>
 
-<button ng-click="addRecipe()">Save New Recipe</button>
+                </div>
+
+                <div class="banner-3">
+
+                    <div class="form-group">
+                        <label>Directions</label>
+
+                        <textarea style="height:360px;" class="form-control" ng-model="recipe.directions"></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="banner-3">
+
+                    <div class="form-group">
+                        <label>Ingredient</label>
+
+                        <div class="input-group">
+                            <input class="form-control" ng-model="ingredientName">
+
+                            <div type="submit" class="input-group-addon btn btn-success"
+                                 ng-click="addIngredientToRecipe(ingredientName)">Add
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Your ingredients list:</p>
+
+                    <div id="ingredient" ng-repeat="ingredient in recipe.ingredients">
+                        <div id="ingredientname">{{ ingredient.name }}</div>
+                        <div type="submit" class="btn btn-default removeItemBtn"
+                             ng-click="removeIngredientFromRecipe($index)"><span
+                                class="glyphicon glyphicon-remove"></span></div>
+                    </div>
+                    <hr>
+
+                </div>
+
+            </form>
+        </div>
+
+        <div class="wrapper" style="padding:5px 0px;">
+            <div class="col-md-3">
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" ng-model="tag.name">
+
+                        <div type="submit" class="input-group-addon btn btn-success" ng-click="addTag(tag.name)">Tag
+                            It
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <div id="tags" ng-repeat="tag in recipe.tags">
+                    <div id="ingredientname">{{ tag.name }}</div>
+                    <div type="submit" class="btn btn-default removeItemBtn" ng-click="removeTag($index)"><span
+                            class="glyphicon glyphicon-remove"></span></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                 <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="recipe.share"> Share It?
+                    </label>
+                  </div>
+            </div>
+            <div class="col-md-2 text-right">
+                <button ng-click="addRecipe()" class="btn btn-success">Save Recipe</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
