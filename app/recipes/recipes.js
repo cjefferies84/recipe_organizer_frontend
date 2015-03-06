@@ -14,9 +14,5 @@ angular.module('myApp.recipes', ['ngRoute'])
         $scope.recipes = recipes;
     });
 
-    $scope.deleteRecipe = function(recipeID) {
-        Restangular.one('recipes', recipeID).customDELETE().then(function(){
-            $location.path('/recipes');
-        })
-    }
+
 }]);

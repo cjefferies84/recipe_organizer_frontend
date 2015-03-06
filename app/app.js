@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     'ngRoute',
-    'myApp.home',
+
     'myApp.recipes',
     'myApp.ingredients',
     'myApp.recipeDetail',
@@ -15,7 +15,7 @@ angular.module('myApp', [
 ]).
 
     config(['$routeProvider', 'RestangularProvider', function ($routeProvider, RestangularProvider) {
-        $routeProvider.otherwise({redirectTo: '/home'});
+        $routeProvider.otherwise({redirectTo: '/recipes'});
 
         RestangularProvider.setBaseUrl('http://localhost:8001')
 

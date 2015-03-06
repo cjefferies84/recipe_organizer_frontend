@@ -31,6 +31,9 @@
                         <textarea style="height:360px;" class="form-control" ng-model="recipe.directions"></textarea>
 
                     </div>
+                    <div>
+                        <input type="file" ng-model="onchange" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+                    </div>
 
                 </div>
 
@@ -75,6 +78,7 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
             <div class="col-md-5">
