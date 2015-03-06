@@ -1,19 +1,19 @@
 
-<input ng-model="num" ng-change="setNum()"/>
-
-<ul>
-    <li ng-repeat="recipe in recipes"><a href="#/recipes/{{ recipe.id }}">{{ recipe.name }}</a>
-        <img src="{{ recipe.photo }}" width=500">
-        <ol>
-                <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
-            </ol>
-            <ol>
-                <li ng-repeat="review in recipe.reviews">{{ review.reviews }}</li>
-            </ol>
-    </li>
-</ul>
-
-<a href="#/add-recipe"></a>
+{#<input ng-model="num" ng-change="setNum()"/>#}
+{##}
+{#<ul>#}
+{#    <li ng-repeat="recipe in recipes"><a href="#/recipes/{{ recipe.id }}">{{ recipe.name }}</a>#}
+{#        <img src="{{ recipe.photo }}" width=500">#}
+{#        <ol>#}
+{#                <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>#}
+{#            </ol>#}
+{#            <ol>#}
+{#                <li ng-repeat="review in recipe.reviews">{{ review.reviews }}</li>#}
+{#            </ol>#}
+{#    </li>#}
+{#</ul>#}
+{##}
+{#<a href="#/add-recipe"></a>#}
 
 
 {#<div id="recipe-list">#}
@@ -25,3 +25,11 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
+<!--Effect: Rotate LESS -->
+		<div class="pic">
+		    <img src="{{ recipe.photo }}" class="pic-image" alt="Pic"/>
+		    <span class="pic-caption rotate-out">
+		        <h1 class="pic-title">Rotate Out</h1>
+		        <p>Hi, this is a simple example =D</p>
+		    </span>
+		</div>
