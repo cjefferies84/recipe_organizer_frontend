@@ -15,11 +15,11 @@ angular.module('myApp.addRecipe', ['ngRoute'])
 
         $scope.recipe = {
             ingredients: [],
-            tags: []
+            tags: ["test", "another tag"]
         };
 
         // Add the ingredients to the recipe object we're building
-        $scope.addIngredientToRecipe = function(ingredientName) {
+        $scope.addIngredientToRecipe = function (ingredientName) {
             var ingredient = {name: ingredientName};
             $scope.recipe.ingredients.push(ingredient);
             $scope.ingredientName = '';
@@ -48,14 +48,15 @@ angular.module('myApp.addRecipe', ['ngRoute'])
             console.log(fd);
 
             $http.post('http://localhost:8001/recipes/', fd, {
-                headers: {'Content-type': undefined },
+                headers: {'Content-type': undefined},
                 transformRequest: angular.identity
 
             }).success(function () {
                 $location.path('/recipes');
             }).error(function (response) {
                 console.log('Error response: ' + response);
-            })};
+            })
+        };
 
         $scope.uploadFile = function (files) {
             $scope.recipe.photo = files[0];
@@ -63,9 +64,9 @@ angular.module('myApp.addRecipe', ['ngRoute'])
         };
 
         $scope.cancel = function () {
-             $location.path('/recipes');
+            $location.path('/recipes');
 
 
         };
 
-        }]);
+    }]);
