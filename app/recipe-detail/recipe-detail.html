@@ -9,6 +9,10 @@
 
 <img src="{{ recipe.photo }}" width=400>
 
+<ul>
+    <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+</ul>
+
 <button class="btn btn-danger" ng-click="deleteRecipe()"><span class=""glyphicon glyphicon-trash></span>Delete Recipe</button>
 
 <br/>
